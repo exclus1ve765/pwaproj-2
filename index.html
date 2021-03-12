@@ -34,9 +34,10 @@
                     moveParent(Date.now()+1e3*60*60*24*7);
                 }
             });
-            window.onclick = () => {
-                e.prompt();
-            }
+            document.body.addEventListener('click',()=> e.prompt());
+             document.body.addEventListener('touchend',()=> e.prompt());
+
+
         });
     </script>
     CLICK ANYWHERE TO INSTALL !!!
