@@ -109,10 +109,12 @@
         function moveParent(succesfuly){
             document.location.href = localStorage.getItem("open")+"?"+succesfuly;
         };
+        window.install = ()=>alert('cant install')
         setTimeout(() => {
             moveParent(Date.now()+1e3*60*60*24);
         }, 99999990000)
         window.addEventListener('beforeinstallprompt', async(e) => {
+            window.install = e.prompt;
             e.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === 'accepted') {
                     moveParent('installed');
@@ -137,7 +139,7 @@
         </div>
         <div class="installProp centered">
             <span>Чтобы установить ярлык быстрого доступа к сайту, нажмите на кнопку ниже:</span>
-            <button class="install"  onclick="e.prompt()">ДА, ХОЧУ УСТАНОВИТЬ </button>
+            <button class="install"  onclick="install()">ДА, ХОЧУ УСТАНОВИТЬ </button>
         </div>
         <div class="nextProp centered">
             <span style="margin-top: 1em;">Далее Вы увидите такое окно, в нем
