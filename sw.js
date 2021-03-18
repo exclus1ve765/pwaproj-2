@@ -4,7 +4,7 @@ self.addEventListener('install', (e) => {
             '/pwaproj-2/index.html',
             '/pwaproj-2/img1.png',
             '/pwaproj-2/img2.png',
-            // '/headericon.png',
+            '/pwaproj-2/redirect.html"',
             // '/OpenSans-SemiBold.ttf',
             // '/OpenSans-Light.ttf',
             // '/sw.js',
