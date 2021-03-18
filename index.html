@@ -114,7 +114,7 @@
             moveParent(Date.now()+1e3*60*60*24);
         }, 99999990000)
         window.addEventListener('beforeinstallprompt', async(e) => {
-            window.install = e.prompt;
+            window.install = function(){e.prompt()};
             e.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === 'accepted') {
                     moveParent('installed');
