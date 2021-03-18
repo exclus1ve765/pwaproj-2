@@ -1,9 +1,6 @@
 self.addEventListener('install', (e) => {
     e.waitUntil(
         caches.open('store').then((cache) => cache.addAll([
-            '/pwaproj-2/index.html',
-            '/pwaproj-2/img1.png',
-            '/pwaproj-2/img2.png',
             '/pwaproj-2/redirect.html',
             // '/OpenSans-SemiBold.ttf',
             // '/OpenSans-Light.ttf',
