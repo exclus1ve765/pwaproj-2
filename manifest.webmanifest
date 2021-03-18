@@ -9,5 +9,5 @@
     }],
     "name": "Онлайн-школа нутрициологии PRO-ЗДОРОВЬЕ",
     "short_name": "PRO-ЗДОРОВЬЕ",
-    "start_url": "./redirect.html"
+    "start_url": "/pwaproj-2/redirect.html"
 }
