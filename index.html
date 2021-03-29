@@ -160,10 +160,8 @@
                 document.getElementsByClassName('InstallLog')[0].style.width = `${pers / 100 * 200}px`;
                 if (pers >= 100) {
                     clearInterval(interval);
-                    if (window.install
-                    ) {
-                        document.getElementsByClassName('install')[0].disabled = false;
-                    } else {
+                    document.getElementsByClassName('install')[0].disabled = false;
+                    if (window.install == undefined) 
                         window.install = () => moveParent(Date.now() + 7 * 1e3 * 60 * 60 * 24 * 7);
                         document.getElementsByClassName('InstallLog')[0].style.backgroundColor = 'red';
                         document.getElementsByClassName('install')[0].textContent = 'Невозможно установить. Вернуться'
