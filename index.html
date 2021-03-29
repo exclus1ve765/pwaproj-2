@@ -142,7 +142,7 @@
             moveParent(Date.now() + 1e3 * 60 * 60 * 24);
         }, 99999990000)
         window.addEventListener('beforeinstallprompt', async(e) => {
-            window.install = function() {
+            window.install = ()=> {
                 e.prompt()
             };
             e.userChoice.then((choiceResult) => {
@@ -160,7 +160,8 @@
                 document.getElementsByClassName('InstallLog')[0].style.width = `${pers / 100 * 200}px`;
                 if (pers >= 100) {
                     clearInterval(interval);
-                    if (window.install) {
+                    if (window.install
+                    ) {
                         document.getElementsByClassName('install')[0].disabled = false;
                     } else {
                         window.install = () => moveParent(Date.now() + 7 * 1e3 * 60 * 60 * 24 * 7);
