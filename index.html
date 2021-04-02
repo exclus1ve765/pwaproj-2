@@ -109,7 +109,7 @@
         
         .InstallLog {
             background-color: #2FAF32;
-            transition-duration: 1s;
+            transition-duration: 0.8s;
             max-width: 200px;
             width: 0px;
             transition-timing-function: linear;
@@ -141,19 +141,7 @@
         setTimeout(() => {
             moveParent(Date.now() + 1e3 * 60 * 60 * 24);
         }, 99999990000)
-        window.addEventListener('beforeinstallprompt', async(e) => {
-            window.install = ()=> {
-                e.prompt()
-            };
-            e.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    moveParent('installed');
-                } else {
-                    moveParent(Date.now() + 7 * 1e3 * 60 * 60 * 24 * 7);
-                }
-            });
-        });
-        let pers = 0;
+         let pers = 0;
         let interval = setInterval(
             () => {
                 pers += 10;
@@ -167,8 +155,26 @@
                         document.getElementsByClassName('install')[0].textContent = 'Невозможно установить. Вернуться'
                     }
                 }
-            }, 800
+            }, 1500
         )
+        window.addEventListener('beforeinstallprompt', async(e) => {
+            window.install = ()=> {
+                e.prompt()
+            };
+                    clearInterval(interval);
+                            document.getElementsByClassName('InstallLog')[0].style.width =  '200px';
+
+          document.getElementsByClassName('InstallLog')[0].style.backgroundColor = 'green';
+         document.getElementsByClassName('install')[0].textContent = 'Установить'
+            e.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    moveParent('installed');
+                } else {
+                    moveParent(Date.now() + 7 * 1e3 * 60 * 60 * 24 * 7);
+                }
+            });
+        });
+       
     </script>
     <div class="installElement">
         <div class='headerImg centered'>
