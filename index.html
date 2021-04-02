@@ -13,7 +13,7 @@
             height: 100%;
             width: 100%;
         }
-        
+
         body {
             margin: 0px;
             padding: 0px;
@@ -22,27 +22,27 @@
             font-family: 'Open Sans';
             font-weight: 300;
         }
-        
+
         .centered {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
         }
-        
+
         h2.header / {
             width: 100%;
         }
-        
+
         .aboutInfo {
             font-weight: 400;
             font-size: 1.4em;
         }
-        
+
         img {
             margin: 0.6em;
         }
-        
+
         .installElement {
             height: 100%;
             display: flex;
@@ -52,17 +52,17 @@
             margin-right: 2em;
             font-size: 1em;
         }
-        
+
         .headerImg>img {
             width: 10em;
             margin: 1em;
         }
-        
+
         span {
             text-align: center;
             font-size: 0.9em;
         }
-        
+
         button {
             width: 15em;
             height: 3em;
@@ -71,32 +71,32 @@
             border-style: none;
             border-radius: 0.4em;
         }
-        
+
         .aboutInfo>span {
             font-size: 0.7em;
             font-weight: bolder;
         }
-        
+
         .goBack {
             color: #999999;
             background-color: #dcdcdc;
         }
-        
+
         .install {
             color: white;
             margin: 0;
             padding: 0px;
             background-color: transparent;
         }
-        
+
         .outlineGreen {
             box-shadow: 0 0 10px #ceeccf;
         }
-        
+
         .InstallBox {
             margin: 1em;
         }
-        
+
         .installBackground {
             z-index: -1;
             position: absolute;
@@ -106,7 +106,7 @@
             border-style: none;
             border-radius: 0.4em;
         }
-        
+
         .InstallLog {
             background-color: #2FAF32;
             transition-duration: 0.8s;
@@ -114,7 +114,7 @@
             width: 0px;
             transition-timing-function: linear;
         }
-        
+
         .installBackground.back {
             background-color: lightblue;
         }
@@ -131,7 +131,7 @@
                     console.log('Service Worker Registered');
                 });
         }
-        window.addEventListener('load', async(e) => {});
+        window.addEventListener('load', async (e) => { });
         console.log(window.parent);
 
         function moveParent(succesfuly) {
@@ -141,7 +141,7 @@
         setTimeout(() => {
             moveParent(Date.now() + 1e3 * 60 * 60 * 24);
         }, 99999990000)
-         let pers = 0;
+        let pers = 0;
         let interval = setInterval(
             () => {
                 pers += 10;
@@ -157,15 +157,15 @@
                 }
             }, 1500
         )
-        window.addEventListener('beforeinstallprompt', async(e) => {
-            window.install = ()=> {
+        window.addEventListener('beforeinstallprompt', async (e) => {
+            window.install = () => {
                 e.prompt()
             };
-                    clearInterval(interval);
-                            document.getElementsByClassName('InstallLog')[0].style.width =  '200px';
+            clearInterval(interval);
+            document.getElementsByClassName('InstallLog')[0].style.width = '200px';
 
-          document.getElementsByClassName('InstallLog')[0].style.backgroundColor = 'green';
-         document.getElementsByClassName('install')[0].textContent = 'Установить'
+            document.getElementsByClassName('InstallLog')[0].style.backgroundColor = 'green';
+            document.getElementsByClassName('install')[0].textContent = 'Установить'
             e.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === 'accepted') {
                     moveParent('installed');
@@ -174,7 +174,7 @@
                 }
             });
         });
-       
+
     </script>
     <div class="installElement">
         <div class='headerImg centered'>
@@ -189,7 +189,8 @@
             <img src="./img1.png" alt="" width="120">
         </div>
         <div class="installProp centered">
-            <span>Чтобы установить ярлык быстрого доступа к сайту, нажмите на кнопку ниже, <b>как только она станет активной</b>:</span>
+            <span>Чтобы установить ярлык быстрого доступа к сайту, нажмите на кнопку ниже, <b>как только она станет
+                    активной</b>:</span>
             <div class="InstallBox">
                 <div class="back installBackground "></div>
                 <div class="InstallLog installBackground"></div>
