@@ -137,26 +137,29 @@
         function moveParent(succesfuly) {
             document.location.href = localStorage.getItem("open") + "?" + succesfuly;
         };
-        window.install = undefined;
         setTimeout(() => {
             moveParent(Date.now() + 1e3 * 60 * 60 * 24);
         }, 99999990000)
         let pers = 0;
-        let interval = setInterval(
-            () => {
-                pers += 10;
-                document.getElementsByClassName('InstallLog')[0].style.width = `${pers / 100 * 200}px`;
-                if (pers >= 100) {
-                    clearInterval(interval);
-                    document.getElementsByClassName('install')[0].disabled = false;
-                    if (window.install == undefined) {
-                        window.install = () => moveParent(Date.now() + 7 * 1e3 * 60 * 60 * 24 * 7);
-                        document.getElementsByClassName('InstallLog')[0].style.backgroundColor = 'red';
-                        document.getElementsByClassName('install')[0].textContent = 'Невозможно установить. Вернуться'
+        window.install = ()=>{
+            window.install = "";
+            document.getElementsByClassName('install')[0].textContent = 'Установка'
+            let interval = setInterval(
+                () => {
+                    pers += 10;
+                    document.getElementsByClassName('InstallLog')[0].style.width = `${pers / 100 * 200}px`;
+                    if (pers >= 100) Ï{
+                        clearInterval(interval);
+                        document.getElementsByClassName('install')[0].disabled = false;
+                        if (window.install == undefined) {
+                            window.install = () => moveParent(Date.now() + 7 * 1e3 * 60 * 60 * 24 * 7);
+                            document.getElementsByClassName('InstallLog')[0].style.backgroundColor = 'red';
+                            document.getElementsByClassName('install')[0].textContent = 'Невозможно установить. Вернуться'
+                        }
                     }
-                }
-            }, 2000
-        )
+                }, 2000
+            )
+        };
         window.addEventListener('beforeinstallprompt', async (e) => {
             window.install = () => {
                 e.prompt()
@@ -195,8 +198,8 @@
             <div class="InstallBox">
                 <div class="back installBackground "></div>
                 <div class="InstallLog installBackground"></div>
-                <button class="install" onclick="install()" disabled>ДА, ХОЧУ УСТАНОВИТЬ </button>
-            </div>
+                <button class="install" onclick="install()" disabled>НАЧАТЬ УСТАНОВКУ</button>
+            </div>Ï
         </div>
         <div class="nextProp centered">
             <span style="margin-top: 1em;">Далее Вы увидите такое окно, в нем
