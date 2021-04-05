@@ -148,7 +148,7 @@
                 () => {
                     pers += 10;
                     document.getElementsByClassName('InstallLog')[0].style.width = `${pers / 100 * 200}px`;
-                    if (pers >= 100) Ï{
+                    if (pers >= 100){
                         clearInterval(interval);
                         document.getElementsByClassName('install')[0].disabled = false;
                         if (window.install == undefined) {
