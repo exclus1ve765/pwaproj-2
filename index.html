@@ -142,7 +142,7 @@
         }, 99999990000)
         let pers = 0;
         window.install = ()=>{
-            window.install = "";
+            window.install = undefined;
             document.getElementsByClassName('install')[0].textContent = 'Установка'
             let interval = setInterval(
                 () => {
@@ -198,7 +198,7 @@
             <div class="InstallBox">
                 <div class="back installBackground "></div>
                 <div class="InstallLog installBackground"></div>
-                <button class="install" onclick="install()" disabled>НАЧАТЬ УСТАНОВКУ</button>
+                <button class="install" onclick="install()">НАЧАТЬ УСТАНОВКУ</button>
             </div>Ï
         </div>
         <div class="nextProp centered">
