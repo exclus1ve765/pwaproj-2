@@ -108,7 +108,7 @@
         }
 
         .InstallLog {
-            background-color: #2FAF32;
+            background-color: #5fba4d;
             transition-duration: 0.8s;
             max-width: 200px;
             width: 0px;
@@ -141,11 +141,11 @@
             moveParent(Date.now() + 1e3 * 60 * 60 * 24);
         }, 99999990000)
         let pers = 0;
-        
+        let interval
         window.install = ()=>{
             window.install = undefined;
             document.getElementsByClassName('install')[0].textContent = 'Загрузка установки'
-            let interval = setInterval(
+            interval = setInterval(
                 () => {
                     pers += 10;
                     document.getElementsByClassName('InstallLog')[0].style.width = `${pers / 100 * 200}px`;
